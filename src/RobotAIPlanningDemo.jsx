@@ -914,32 +914,16 @@ export default function AIRobotPlanningLab() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-fuchsia-50 p-4 text-slate-900 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 dark:text-slate-100 md:p-8">
       <div className="mx-auto max-w-7xl space-y-6">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="grid gap-4 rounded-[28px] border bg-white/80 p-6 shadow-sm backdrop-blur dark:bg-slate-900/80 md:grid-cols-[1.4fr_0.8fr]"
-        >
-          <div>
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm">
-              <Sparkles className="h-4 w-4" /> AI Planning + Robotics Lab
-            </div>
-            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Bộ mô phỏng đầy đủ cho 7 bài toán AI và robot</h1>
-            <p className="mt-3 max-w-3xl text-base text-slate-600 dark:text-slate-300">
-              Gồm A*, Dijkstra, Greedy search, Random search, GridWorld với Q-learning, suy luận logic cho smart home,
-              STRIPS/PDDL mini planner và Monte Carlo localization. Có animation, mê cung ngẫu nhiên và thay đổi kích thước bản đồ.
-            </p>
-          </div>
-          <Card className="rounded-3xl border-dashed shadow-none">
-            <CardHeader>
-              <CardTitle className="text-lg">Các module có sẵn</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-wrap gap-2">
-              {["A*", "Dijkstra", "Greedy", "Random Search", "Q-learning", "Logic", "STRIPS/PDDL", "MCL"].map((x) => (
-                <Badge key={x} className="rounded-full px-3 py-1">{x}</Badge>
-              ))}
-            </CardContent>
-          </Card>
-        </motion.div>
+
+        {/* Header */}
+        <div className="text-center">
+          <h1 className="text-3xl font-bold tracking-tight">
+            Produced by Tiến Anh – Đức – Cường
+          </h1>
+          <p className="mt-2 text-slate-600 dark:text-slate-400">
+            
+          </p>
+        </div>
 
         <Tabs defaultValue="astar" className="space-y-4">
           <TabsList className="flex h-auto flex-wrap justify-start gap-2 rounded-2xl bg-transparent p-0">
@@ -953,15 +937,39 @@ export default function AIRobotPlanningLab() {
             <TabsTrigger value="dijkstra" className="rounded-2xl border px-4 py-2">Bonus: Dijkstra</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="astar"><SearchDemo algorithm="astar" label="A* Search" /></TabsContent>
-          <TabsContent value="greedy"><SearchDemo algorithm="greedy" label="Greedy Best-First Search" /></TabsContent>
-          <TabsContent value="random"><SearchDemo algorithm="random" label="Random Search" /></TabsContent>
-          <TabsContent value="gridworld"><QLearningDemo /></TabsContent>
-          <TabsContent value="logic"><LogicDemo /></TabsContent>
-          <TabsContent value="strips"><StripsDemo /></TabsContent>
-          <TabsContent value="mcl"><LocalizationDemo /></TabsContent>
-          <TabsContent value="dijkstra"><SearchDemo algorithm="dijkstra" label="Dijkstra Search" /></TabsContent>
+          <TabsContent value="astar">
+            <SearchDemo algorithm="astar" label="A* Search" />
+          </TabsContent>
+
+          <TabsContent value="greedy">
+            <SearchDemo algorithm="greedy" label="Greedy Best-First Search" />
+          </TabsContent>
+
+          <TabsContent value="random">
+            <SearchDemo algorithm="random" label="Random Search" />
+          </TabsContent>
+
+          <TabsContent value="gridworld">
+            <QLearningDemo />
+          </TabsContent>
+
+          <TabsContent value="logic">
+            <LogicDemo />
+          </TabsContent>
+
+          <TabsContent value="strips">
+            <StripsDemo />
+          </TabsContent>
+
+          <TabsContent value="mcl">
+            <LocalizationDemo />
+          </TabsContent>
+
+          <TabsContent value="dijkstra">
+            <SearchDemo algorithm="dijkstra" label="Dijkstra Search" />
+          </TabsContent>
         </Tabs>
+
       </div>
     </div>
   );
