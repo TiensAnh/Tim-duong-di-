@@ -694,24 +694,40 @@ function StripsDemo() {
 
   const domains = {
     tea: {
-      initial: ["have_water", "have_kettle", "have_cup", "have_tea_bag"],
-      goal: ["tea_ready"],
+      initial: ["co_nuoc", "co_am_dun_nuoc", "co_coc", "co_tui_tra"],
+      goal: ["tra_san_sang"],
       plan: [
-        { name: "boil_water", pre: ["have_water", "have_kettle"], add: ["water_boiled"] },
-        { name: "put_tea_bag_in_cup", pre: ["have_cup", "have_tea_bag"], add: ["tea_bag_in_cup"] },
-        { name: "pour_boiled_water", pre: ["water_boiled", "tea_bag_in_cup"], add: ["tea_ready"] },
+        { name: "Đun sôi nước", pre: ["co_nuoc", "co_am_dun_nuoc"], add: ["nuoc_da_soi"] },
+        { name: "Cho túi trà vào cốc", pre: ["co_coc", "co_tui_tra"], add: ["tui_tra_trong_coc"] },
+        { name: "Rót nước sôi vào cốc", pre: ["nuoc_da_soi", "tui_tra_trong_coc"], add: ["tra_san_sang"] },
       ],
     },
     deliver: {
-      initial: ["robot_at_A", "package_at_A", "path_A_B", "gripper_empty"],
-      goal: ["package_at_B"],
+      initial: ["robot_o_A", "kien_hang_o_A", "co_duong_A_B", "tay_gap_trong"],
+      goal: ["kien_hang_o_B"],
       plan: [
-        { name: "pickup_package", pre: ["robot_at_A", "package_at_A", "gripper_empty"], add: ["holding_package"], del: ["gripper_empty", "package_at_A"] },
-        { name: "move_A_to_B", pre: ["robot_at_A", "path_A_B"], add: ["robot_at_B"], del: ["robot_at_A"] },
-        { name: "drop_package", pre: ["robot_at_B", "holding_package"], add: ["package_at_B", "gripper_empty"], del: ["holding_package"] },
+        {
+          name: "Nhặt kiện hàng",
+          pre: ["robot_o_A", "kien_hang_o_A", "tay_gap_trong"],
+          add: ["dang_giu_kien_hang"],
+          del: ["tay_gap_trong", "kien_hang_o_A"],
+        },
+        {
+          name: "Di chuyển từ A đến B",
+          pre: ["robot_o_A", "co_duong_A_B"],
+          add: ["robot_o_B"],
+          del: ["robot_o_A"],
+        },
+        {
+          name: "Đặt kiện hàng xuống",
+          pre: ["robot_o_B", "dang_giu_kien_hang"],
+          add: ["kien_hang_o_B", "tay_gap_trong"],
+          del: ["dang_giu_kien_hang"],
+        },
       ],
     },
   };
+
 
   const selected = domains[goal];
 
