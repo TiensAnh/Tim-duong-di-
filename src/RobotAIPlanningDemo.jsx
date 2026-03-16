@@ -915,16 +915,6 @@ export default function AIRobotPlanningLab() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-fuchsia-50 p-4 text-slate-900 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 dark:text-slate-100 md:p-8">
       <div className="mx-auto max-w-7xl space-y-6">
 
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight">
-            Produced by Tiến Anh – Đức – Cường
-          </h1>
-          <p className="mt-2 text-slate-600 dark:text-slate-400">
-            
-          </p>
-        </div>
-
         <Tabs defaultValue="astar" className="space-y-4">
           <TabsList className="flex h-auto flex-wrap justify-start gap-2 rounded-2xl bg-transparent p-0">
             <TabsTrigger value="astar" className="rounded-2xl border px-4 py-2">1. A*</TabsTrigger>
@@ -968,6 +958,7 @@ export default function AIRobotPlanningLab() {
           <TabsContent value="dijkstra">
             <SearchDemo algorithm="dijkstra" label="Dijkstra Search" />
           </TabsContent>
+
         </Tabs>
 
       </div>
